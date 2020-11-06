@@ -431,6 +431,7 @@ button:focus {
 #celebrity-image {
   opacity: 0;
   border: 0.4rem solid #fff;
+  align-self: center;
 }
 
 .blur-image {
