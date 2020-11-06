@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="A quiz that tests your ability to identify blurry photos of celebrities."/>
+  <link href="index.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+  <script src="https://kit.fontawesome.com/0e8ff5a22e.js" crossorigin="anonymous"></script>
+  <script defer src="index.js"></script>
+  <title>Celebrity Photo Quiz</title>
+</head>
+<body>
+<!-- Welcome modal -->
+<div class="modal active">
+  <div id="modal-content">
+    <h1 id="welcome-header">Bleary-eyed Quiz</h1>
+    <div class="modal-inner-background">
+      <h2>How to play:</h2>
+      <ul>
+        <li>&nbsp;Try to guess the identity of the celebrity in the blurry photo.</li>
+        <li>&nbsp;Earn five points if you guess the celebrity's identity on the first attempt.</li>
+        <li>&nbsp;With each incorrect attempt, the photo becomes less blurry and the point value decreases by one.</li>
+      </ul>
+      <button id="start-btn" class="btn start-btn">Start Quiz</button>
+    </div>
+  </div>
+</div>
+<!-- End of game modal -->
+<div class="modal">
+  <div id="end-modal-content" class="">
+    <i id="close-end-modal" class="fas fa-times"></i>
+    <h1>Final Score</h1>
+    <div class="modal-inner-background end">
+      <div id="final-score"></div>
+      <div id="end-message" class="end-message">
+        <h2 id="end-heading">Great job!</h2>
+        <p id="end-paragraph">You sure know your celebrities!</p>
+      </div>
+      <!-- Social sharing buttons -->
+      <div id="share-container">
+        <h2>Share the quiz:</h2>
+        <div class="share-icons">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_inline_share_toolbox"></div>
+        </div>
+      <!-- End sharing buttons -->
+      </div>     
+      <button id="try-again-btn" class="btn">Try Again
+      </button> 
+    </div>    
+  </div>
+</div>
+<div id="topbar" class="">
+  <div class="quiz-title">
+    <h1>Bleary-eyed Quiz</h1>
+  </div>
+  <div>
+    <ul id="topbar-links"> 
+      <li id="how-to-play" class="active"><a href="#">How to Play</a>
+      </li>
+      <li id="try-again"><a href="#">Try Again</a>
+      </li>
+    </ul> 
+  </div>
+</div>
+<main id="quiz-content">
+  <div class="quiz-content-wrapper">
+    <div class="image-outer-wrapper">
+      <div class="image-wrapper">
+        <div id="image-container">
+          <div class="celebrity-image-container">
+            <img id="celebrity-image" class="blur-image" src="" alt="blurry image">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='hud-multiple-choice-wrapper'>
+      <div class="hud-wrapper">
+        <div id="hud">
+          <div class="hud-item">
+            <p id="progress-text" class="hud-prefix">
+            </p>
+            <div id="progress-bar">
+              <div id="progress-bar-full">
+              </div>
+            </div>
+          </div>
+          <div class="hud-item">
+            <i id="hud-next-arrow" class="far fa-arrow-alt-circle-right"></i>
+          </div>
+          <div class="hud-item">
+            <p class="hud-prefix" id="score">
+              Score:&nbsp; 0/50
+            </p>  
+          </div>
+        </div>
+      </div>
+    <div class="multiple-choice-wrapper">
+      <div id="multiple-choice-container">
+        <div id="answer-items">
+          <div class="choice-container">
+            <p class="choice-prefix">A</p>
+            <p class="choice-text" data-number="1"></p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">B</p>
+            <p class="choice-text" data-number="2"></p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">C</p>
+            <p class="choice-text" data-number="3"></p>
+          </div>
+          <div class="choice-container">
+            <p class="choice-prefix">D</p>
+            <p class="choice-text" data-number="4"></p>
+          </div>
+          <div class="choice-container last">
+            <p class="choice-prefix">E</p>
+            <p class="choice-text" data-number="5"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="next-btn-container">
+      <button id="next-btn" class=""><span>Next</span><i class="fas fa-chevron-right"></i></button>
+    </div>
+    </div>
+    </div>
+  </div>
+</main>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f0f5e2c977cdd7e"></script>
+  </body>
+</html>
