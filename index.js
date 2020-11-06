@@ -25,7 +25,9 @@
 	unfocus();
 })(document, window);
 
+// Main components
 const topBar = document.getElementById('topbar');
+const quizContent = document.getElementById('quiz-content');
 
 // Modals and related buttons
 const startQuizBtn = document.getElementById('start-btn');
@@ -163,12 +165,32 @@ const questions = [
 const maxQuestions = questions.length;
 const maxScore = maxQuestions * 5;
 
-scrollToTop = () => {
-  window.scroll({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
+// scrollToTop = () => {
+//   window.scroll({
+//     top: 0,
+//     behavior: 'smooth'
+//   });
+// }
+
+// JavaScript solution for smooth scroll in iOS
+let scrollPosition = 0;
+
+window.addEventListener('scroll', function() { 
+  scrollPosition = window.scrollY;
+})
+
+autoScroll = () => {
+  console.log(scrollPosition);
+  quizContent.animate([
+    {transform: `translateY(0)`},
+    {transform: `translateY(${scrollPosition}px)`}
+    ], { 
+    duration: 500,
+    fill: 'forwards',
+    ease: 'ease-in',
+    composite: 'replace'
+  })
+};
 
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
@@ -189,7 +211,7 @@ deactivateNextButton = () => {
 }
 
 startQuiz = () => {
-  startQuizBtn.addEventListener('click', scrollToTop);
+  // startQuizBtn.addEventListener('click', scrollToTop);
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions]
@@ -212,18 +234,18 @@ inactivateNames = () => {
     choiceContainerArr[i].classList.add('inactive');
 }};
 
-shuffleNames = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
+shuffleNames = (names) => {
+  for (let i = names.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    const temp = names[i];
+    names[i] = names[j];
+    names[j] = temp;
   }
-  return array;
+  return names;
 }
 
 getNewQuestion = () => {
-  scrollToTop();
+  // scrollToTop();
   resetNextQuestion();
   questionCounter++;
   progressText.innerHTML = `Question: ${questionCounter}/${maxQuestions}`;
@@ -252,6 +274,7 @@ getNewQuestion = () => {
 
 choicesArr.forEach(choice => {
   choice.addEventListener('click', e => {
+    e.preventDefault;
     const selectedChoice = e.target;
     let classToApply = 'incorrect';
     if (selectedChoice.textContent === currentQuestion.answer) {
@@ -264,7 +287,8 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      scrollToTop();
+      // scrollToTop();
+      autoScroll();
       inactivateNames();
     }
 
@@ -276,7 +300,7 @@ choicesArr.forEach(choice => {
 
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
-      scrollToTop();
+      // scrollToTop();
       activateNextButton();
     }
 
@@ -303,14 +327,20 @@ removeShadow = () => {
 }
 
 window.addEventListener('scroll', function() { 
-  scrollpos = window.scrollY;
-  if (scrollpos >= topbarHeight) { 
-    addShadowOnScroll() }
-  else { removeShadow () 
+  scrollPos = window.scrollY;
+  if (scrollPos >= topbarHeight) { 
+    addShadowOnScroll();
+  }
+  else { 
+    removeShadow();
+  }
+  if (scrollPos >= 1) { 
+  quizContent.classList.add('auto-scroll')
+  }
+  else { 
+    quizContent.classList.remove('auto-scroll')
   }
 })
-
-
 
 startQuizBtn.addEventListener('click', function() {
   modal.classList.remove('active');

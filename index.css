@@ -666,7 +666,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   width: 100%;
   background-color: white;
   border: 1px solid var(--mid-dark-gray);
@@ -685,7 +685,7 @@ button:focus {
   font-family: 'Roboto Mono', monospace;
   font-size: 1.8rem;
   background-color: var(--mid-blue);
-  padding: 1rem 1.5rem;
+  padding: 1.1rem 1.5rem;
   color: #fff;
 }
 
