@@ -164,7 +164,7 @@ const maxQuestions = questions.length;
 const maxScore = maxQuestions * 5;
 
 scrollToTop = () => {
-  window.scrollTo({
+  window.scroll({
     top: 0,
     behavior: 'smooth'
   });
