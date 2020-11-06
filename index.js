@@ -310,6 +310,8 @@ window.addEventListener('scroll', function() {
   }
 })
 
+
+
 startQuizBtn.addEventListener('click', function() {
   modal.classList.remove('active');
 });
