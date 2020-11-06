@@ -364,6 +364,11 @@ button:focus {
 
 
 /* Quiz content */
+.quiz-content-wrapper {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
 #quiz-content {
   width: 100%;
   height: auto;
@@ -726,6 +731,12 @@ button:focus {
 
 .choice-container.incorrect > .choice-text {
   color: var(--incorrect-dark-red);
+}
+
+#celebrity-image.fade-in {
+  animation-name: fadeInImage;
+  animation-duration: 750ms;
+  animation-fill-mode: forwards;
 }
 
 /* Multiple choice media queries */
