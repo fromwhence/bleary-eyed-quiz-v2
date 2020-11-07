@@ -378,7 +378,7 @@ lastQuestion = () => {
   howToPlay.classList.remove('active');
   tryAgainLink.classList.add('active');
   nextBtn.classList.remove('active');
-  window.setTimeout(endQuizModal, 2000);
+  window.setTimeout(endQuizModal, 2500);
 }
 
 endQuizModal = () => {
