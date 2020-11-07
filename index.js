@@ -202,7 +202,7 @@ setScrollPosition = () => {
 )};
 
 autoScroll = () => {
-  if (window.innerWidth > 500) {
+  if (window.innerWidth >= 768) {
     console.log(window.innerWidth)
     scrollToTop();
   }
