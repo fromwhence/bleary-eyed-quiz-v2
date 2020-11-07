@@ -609,7 +609,7 @@ button:focus {
 
 #hud-next-arrow {
   position: absolute;
-  top: 0.545rem;
+  top: 0.565rem;
   left: 46.25%;
   font-size: 3.2rem;
   visibility: visible;
