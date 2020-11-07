@@ -129,7 +129,7 @@ button:focus {
   backdrop-filter: blur(3px);
   z-index: 3;
   transform: scale(0);
-  transition: 400ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .modal.active {
@@ -380,8 +380,8 @@ button:focus {
   align-items: center;
   margin: 0 auto;
   margin-top: 43px;
-  transition: all 500ms;
-  transform: translateY(0);
+  /* transition: all 500ms;
+  transform: translateY(0); */
 }
 
 #quiz-content-wrapper {
