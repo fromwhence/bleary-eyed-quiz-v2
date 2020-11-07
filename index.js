@@ -115,16 +115,16 @@ const questions = [
 
   },
   {
-    celebrity: "images/daniel-radcliffe.jpg",
+    celebrity: "images/elijah-wood.png",
     choice1: "Elijah Wood",
     choice2: "Daniel Radcliffe",
     choice3: "Liam Hemsworth",
     choice4: "Tobey Maguire",
     choice5: "Justin Timberlake",
-    answer: "Daniel Radcliffe"
+    answer: "Elijah Wood"
   },
   {
-    celebrity: "images/rihanna.jpg",
+    celebrity: "images/rihanna-2.jpg",
     choice1: "Rihanna",
     choice2: "Megan Fox",
     choice3: "Cardi B",

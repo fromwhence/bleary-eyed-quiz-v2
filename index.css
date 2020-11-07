@@ -288,7 +288,7 @@ button:focus {
 
 @media (min-width: 450px) {
   #modal-content, #end-modal-content {
-    top: 15%;
+    top: 13%;
   }
 }
 
@@ -419,8 +419,8 @@ button:focus {
 
 @media (min-width: 1280px) {
   .quiz-content-wrapper {
-    padding: 4rem 5.5rem;
-    margin: 3rem auto 3.75rem auto;
+    padding: 4rem 5.5rem 4.15rem;
+    margin: 3rem auto 4rem auto;
   }
 }
 
