@@ -202,12 +202,19 @@ setScrollPosition = () => {
 )};
 
 autoScroll = () => {
-  setScrollPosition();
-  quizContent.style.transition = 'all 500ms';
-  quizContent.style.transform = `translateY(${scrollPosition}px)`;
-  setTimeout(function() {
-    removeShadow();
-  }, 500);
+  if (window.innerWidth > 768) {
+    console.log(window.innerWidth)
+    scrollToTop();
+  }
+  else {
+    console.log('Using auto scroll')
+    setScrollPosition();
+    quizContent.style.transition = 'all 500ms';
+    quizContent.style.transform = `translateY(${scrollPosition}px)`;
+    setTimeout(function() {
+      removeShadow();
+    }, 500);
+  }
 }
 
 resetScrollPosition = () => {
@@ -243,6 +250,7 @@ startQuiz = () => {
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
+  scrollToTop();
 }
 
 resetNextQuestion = () => {
