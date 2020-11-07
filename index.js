@@ -151,13 +151,13 @@ const questions = [
     answer: "Selena Gomez"
   },
   {
-    celebrity: "images/john-cho.jpg",
+    celebrity: "images/henry-golding.jpg",
     choice1: "Steven Yeun",
     choice2: "Harry Shum Jr.",
     choice3: "Henry Golding",
     choice4: "John Cho",
     choice5: "Daniel Henney",
-    answer: "John Cho"
+    answer: "Henry Golding"
   },
 ];
 
@@ -203,7 +203,6 @@ setScrollPosition = () => {
 
 autoScroll = () => {
   if (window.innerWidth >= 768) {
-    console.log(window.innerWidth)
     scrollToTop();
   }
   else {
@@ -334,6 +333,14 @@ choicesArr.forEach(choice => {
       incrementScore(availablePoints);
       activateNextButton();
       autoScroll();
+      let choices = document.getElementsByClassName('choice-container');
+      const choicesArr = [...choices];
+      console.log(choicesArr);
+        for (let i = 0; i < choicesArr.length; i++) {
+          if (choicesArr[i].classList.contains !== 'incorrect') {
+            choicesArr[i].classList.add('correct');
+          }
+        }
     }
 
     if (classToApply === 'incorrect' &&  blurAmount === 0 && availableQuestions.length == 0) {
