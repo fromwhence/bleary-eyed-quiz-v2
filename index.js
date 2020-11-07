@@ -47,7 +47,6 @@ const answerContainer = document.getElementById('answer-items');
 
 // Hud data
 const questionCounterText = document.getElementById('question-counter');
-const progressText = document.getElementById('progress-text');
 const progressBarFull = document.getElementById('progress-bar-full');
 const scoreText = document.getElementById('score');
 const hudNextArrow = document.getElementById('hud-next-arrow');
@@ -193,8 +192,6 @@ scrollToTop = () => {
   removeShadow();
 }
 
-// JavaScript solution for smooth scroll in iOS
-
 let scrollPosition = 0;
 
 setScrollPosition = () => {
@@ -206,6 +203,7 @@ setScrollPosition = () => {
 
 autoScroll = () => {
   setScrollPosition();
+  quizContent.style.transition = 'all 500ms';
   quizContent.style.transform = `translateY(${scrollPosition}px)`;
   setTimeout(function() {
     removeShadow();
@@ -213,7 +211,11 @@ autoScroll = () => {
 }
 
 resetScrollPosition = () => {
+  quizContent.style.transition = 'all 0s';
   quizContent.style.transform = 'unset';
+  window.scroll({
+    top: 0,
+  });
 }
 
 imageTransition = () => {
@@ -241,7 +243,6 @@ startQuiz = () => {
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
-  scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -250,9 +251,8 @@ resetNextQuestion = () => {
     choiceContainerArr[i].lastElementChild.classList.remove('inactive');
   }
   deactivateNextButton();
-  scrollToTop();
-  answerContainer.style.pointerEvents = 'auto';
   resetScrollPosition();
+  answerContainer.style.pointerEvents = 'auto';
 }
 
 inactivateNames = () => {
@@ -274,7 +274,6 @@ shuffleNames = (names) => {
 getNewQuestion = () => {
   resetNextQuestion();
   questionCounter++;
-  progressText.innerHTML = `Question: ${questionCounter}/${maxQuestions}`;
   progressBarFull.style.width = `${(questionCounter / maxQuestions) * 100}%`;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
@@ -326,6 +325,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
+      autoScroll();
     }
 
     if (classToApply === 'incorrect' &&  blurAmount === 0 && availableQuestions.length == 0) {
@@ -333,7 +333,6 @@ choicesArr.forEach(choice => {
     }
 
     if (classToApply === 'correct' && availableQuestions.length == 0) {
-      console.log('Last question')
       lastQuestion();
       inactivateNames();
     }
@@ -361,7 +360,6 @@ incrementScore = availablePoints => {
 
 lastQuestion = () => {
   hudNextArrow.classList.remove('active');
-  progressText.innerHTML = `Question: ${maxQuestions}/${maxQuestions}`;
   howToPlay.classList.remove('active');
   tryAgainLink.classList.add('active');
   nextBtn.classList.remove('active');
@@ -372,7 +370,6 @@ endQuizModal = () => {
   endModal.classList.add('active');
   endModalContent.classList.add('active');
   finalScore.innerHTML = `${score}/${maxScore}`;
-  progressText.innerHTML = `Question: ${maxQuestions}/${maxQuestions}`;
   if (score >= (maxScore - 5)) {
     endOfGameHeading.textContent = 'Excellent job!';
     endOfGameText.textContent = 'You have a keen eye for celebrities!';

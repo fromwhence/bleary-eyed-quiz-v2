@@ -61,11 +61,18 @@ html {
   }
 }
 
+@media (min-width: 1280px) {
+  html {
+    font-size: 70%;
+  }
+}
+
 body {
  font-family: 'Nunito Sans', sans-serif;
  background-color: var(--gradient-gray);
  color: var(--dark-gray);
  min-height: 100vh;
+ position: relative;
 }
 
 @media (min-width: 450px) {
@@ -285,6 +292,12 @@ button:focus {
   }
 }
 
+@media (min-width: 1280px) {
+  #modal-content, #end-modal-content {
+    top: 16.5%;
+  }
+}
+
 /* Top bar */
 
 #topbar {
@@ -357,20 +370,13 @@ button:focus {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   #topbar {
     padding: 0.85rem 2.25rem;
   }
 }
 
-
 /* Quiz content */
-.quiz-content-wrapper {
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  position: relative;
-}
-
 #quiz-content {
   width: 100%;
   height: auto;
@@ -381,7 +387,11 @@ button:focus {
   margin: 0 auto;
   margin-top: 43px;
   transition: all 500ms;
-  transform: none;
+  transform: translateY(0);
+}
+
+#quiz-content-wrapper {
+  position: relative;
 }
 
 @media (min-width: 666px) {
@@ -406,13 +416,16 @@ button:focus {
 
 @media (min-width: 1025px) {
   .quiz-content-wrapper {
-
     padding: 4.25rem 5rem;
     margin: 3.25rem auto;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
+  .quiz-content-wrapper {
+    padding: 4.5rem 5.25rem;
+    margin: 3.5rem auto;
+  }
 }
 
 /* Celebrity image */
@@ -481,7 +494,7 @@ button:focus {
     border-bottom: none;
   }
 
-  .celebrity-image {
+  #celebrity-image {
     border: 0.4rem solid #fff;
     background-color: transparent;
   }
@@ -503,28 +516,37 @@ button:focus {
     border: 1px solid var(--mid-light-gray);
   }
 
-  .celebrity-image {
-    border: 0.6rem solid #fff;
+  #celebrity-image {
+    border: 0.5rem solid #fff;
   }
 }
 
 @media (min-width: 1025px) {
   .celebrity-image-container {
     min-width: 450px;
-    border: 1px solid var(--mid-light-gray);
   }
 
-  .celebrity-image {
+  #celebrity-image {
+    border: 0.6rem solid #fff;
+  }
+}
+
+@media (min-width: 1280px) {
+  .celebrity-image-container {
+    min-width: 470px;
+  }
+
+  #celebrity-image {
     border: 0.8rem solid #fff;
   }
 }
 
-.hud-multiple-choice-wrapper {
+#hud-multiple-choice-wrapper {
   width: 100%;
 }
 
 @media (min-width: 888px) {
-  .hud-multiple-choice-wrapper {
+  #hud-multiple-choice-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -536,9 +558,16 @@ button:focus {
 }
 
 @media (min-width: 1025px) {
-  .hud-multiple-choice-wrapper {
+  #hud-multiple-choice-wrapper {
     min-width: 325px;
     margin-left: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  #hud-multiple-choice-wrapper {
+    min-width: 335px;
+    margin-left: 3.2rem;
   }
 }
 
@@ -792,7 +821,13 @@ button:focus {
 
 @media (min-width: 1025px) {
   .choice-container {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .choice-prefix {
+    padding: 1.35rem 1.6rem;
   }
 }
 
