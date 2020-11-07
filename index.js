@@ -201,6 +201,14 @@ setScrollPosition = () => {
   }
 )};
 
+resetScrollPosition = () => {
+  quizContent.style.transform = 'unset';
+  window.scroll({
+    top: 0,
+  });
+}
+
+/* In progress
 autoScroll = () => {
   if (window.innerWidth >= 768) {
     scrollToTop();
@@ -208,21 +216,15 @@ autoScroll = () => {
   else {
     console.log('Using auto scroll')
     setScrollPosition();
+    console.log(scrollPosition);
     quizContent.style.transition = 'all 500ms';
     quizContent.style.transform = `translateY(${scrollPosition}px)`;
+    scrollToTop();
     setTimeout(function() {
       removeShadow();
     }, 500);
   }
-}
-
-resetScrollPosition = () => {
-  quizContent.style.transition = 'all 0s';
-  quizContent.style.transform = 'unset';
-  window.scroll({
-    top: 0,
-  });
-}
+} */
 
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
@@ -258,7 +260,7 @@ resetNextQuestion = () => {
     choiceContainerArr[i].lastElementChild.classList.remove('inactive');
   }
   deactivateNextButton();
-  resetScrollPosition();
+  scrollToTop();
   answerContainer.style.pointerEvents = 'auto';
 }
 
@@ -319,7 +321,7 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      autoScroll();
+      scrollToTop();
       inactivateNames();
     }
 
@@ -332,7 +334,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
-      autoScroll();
+      scrollToTop();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
       console.log(choicesArr);
