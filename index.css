@@ -368,6 +368,7 @@ button:focus {
 .quiz-content-wrapper {
   scroll-behavior: smooth;
   overflow-y: scroll;
+  position: relative;
 }
 
 #quiz-content {
@@ -379,6 +380,8 @@ button:focus {
   align-items: center;
   margin: 0 auto;
   margin-top: 43px;
+  transition: all 500ms;
+  transform: none;
 }
 
 @media (min-width: 666px) {

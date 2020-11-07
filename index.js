@@ -165,32 +165,56 @@ const questions = [
 const maxQuestions = questions.length;
 const maxScore = maxQuestions * 5;
 
-// scrollToTop = () => {
-//   window.scroll({
-//     top: 0,
-//     behavior: 'smooth'
-//   });
-// }
+// Add box-shadow to topbar when scrolling
+const topbarHeight = topbar.offsetHeight;
 
-// JavaScript solution for smooth scroll in iOS
-let scrollPosition = 0;
+addShadowOnScroll = () => {
+  topBar.classList.add('scroll-shadow')
+}
+removeShadow = () => { 
+  topBar.classList.remove('scroll-shadow')
+}
 
 window.addEventListener('scroll', function() { 
   scrollPosition = window.scrollY;
+  if (scrollPosition >= topbarHeight) { 
+    addShadowOnScroll();
+  }
+  else { 
+    removeShadow();
+  }
 })
 
+scrollToTop = () => {
+  window.scroll({
+    top: 0,
+    behavior: 'smooth'
+  });
+  removeShadow();
+}
+
+// JavaScript solution for smooth scroll in iOS
+
+let scrollPosition = 0;
+
+setScrollPosition = () => {
+  window.addEventListener('scroll', function() { 
+    let scrollPosition = window.scrollY;
+    return scrollPosition;
+  }
+)};
+
 autoScroll = () => {
-  console.log(scrollPosition);
-  quizContent.animate([
-    {transform: `translateY(0)`},
-    {transform: `translateY(${scrollPosition}px)`}
-    ], { 
-    duration: 500,
-    fill: 'forwards',
-    ease: 'ease-in',
-    composite: 'replace'
-  })
-};
+  setScrollPosition();
+  quizContent.style.transform = `translateY(${scrollPosition}px)`;
+  setTimeout(function() {
+    removeShadow();
+  }, 500);
+}
+
+resetScrollPosition = () => {
+  quizContent.style.transform = 'unset';
+}
 
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
@@ -211,12 +235,13 @@ deactivateNextButton = () => {
 }
 
 startQuiz = () => {
-  // startQuizBtn.addEventListener('click', scrollToTop);
+  startQuizBtn.addEventListener('click', scrollToTop);
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
+  scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -225,7 +250,9 @@ resetNextQuestion = () => {
     choiceContainerArr[i].lastElementChild.classList.remove('inactive');
   }
   deactivateNextButton();
+  scrollToTop();
   answerContainer.style.pointerEvents = 'auto';
+  resetScrollPosition();
 }
 
 inactivateNames = () => {
@@ -245,7 +272,6 @@ shuffleNames = (names) => {
 }
 
 getNewQuestion = () => {
-  // scrollToTop();
   resetNextQuestion();
   questionCounter++;
   progressText.innerHTML = `Question: ${questionCounter}/${maxQuestions}`;
@@ -287,7 +313,6 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      // scrollToTop();
       autoScroll();
       inactivateNames();
     }
@@ -300,7 +325,6 @@ choicesArr.forEach(choice => {
 
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
-      // scrollToTop();
       activateNextButton();
     }
 
@@ -315,32 +339,6 @@ choicesArr.forEach(choice => {
     }
   });
 });
-
-// Add box-shadow to topbar when scrolling
-const topbarHeight = topbar.offsetHeight;
-
-addShadowOnScroll = () => {
-  topBar.classList.add('scroll-shadow')
-}
-removeShadow = () => { 
-  topBar.classList.remove('scroll-shadow')
-}
-
-window.addEventListener('scroll', function() { 
-  scrollPos = window.scrollY;
-  if (scrollPos >= topbarHeight) { 
-    addShadowOnScroll();
-  }
-  else { 
-    removeShadow();
-  }
-  if (scrollPos >= 1) { 
-  quizContent.classList.add('auto-scroll')
-  }
-  else { 
-    quizContent.classList.remove('auto-scroll')
-  }
-})
 
 startQuizBtn.addEventListener('click', function() {
   modal.classList.remove('active');
