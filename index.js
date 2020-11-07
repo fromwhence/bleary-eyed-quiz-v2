@@ -87,13 +87,13 @@ const questions = [
     answer: "Keanu Reeves"
   },
   { 
-    celebrity: "images/salma-hayek.jpg",
+    celebrity: "images/sofia-vergara.jpg",
     choice1: "Jennifer Lopez",
     choice2: "Sofía Vergara",
     choice3: "Jessica Alba",
     choice4: "Salma Hayek",
     choice5: "Penélope Cruz",
-    answer: "Salma Hayek"
+    answer: "Sofía Vergara"
   },
   {
     celebrity: "images/nicki-minaj-2.jpg",
@@ -133,13 +133,13 @@ const questions = [
     answer: "Rihanna"
   },
   {
-    celebrity: "images/michael-b-jordan.jpg",
+    celebrity: "images/anthony-mackie.jpg",
     choice1: "Anthony Mackie",
     choice2: "Don Cheadle",
     choice3: "Jamie Foxx",
     choice4: "Idris Elba",
     choice5: "Michael B. Jordan",
-    answer: "Michael B. Jordan"
+    answer: "Anthony Mackie"
   },
   {
     celebrity: "images/selena-gomez.jpg",
