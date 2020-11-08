@@ -455,7 +455,7 @@ button:focus {
   justify-content: center;
   background-color: var(--light-gray);
   border: 1px solid var(--mid-light-gray);
-  margin: 1.25rem;
+  margin: 1.5rem;
   overflow: hidden;
 }
 
@@ -623,7 +623,7 @@ button:focus {
 
 #hud-next-arrow {
   position: absolute;
-  top: 0.575rem;
+  top: 0.59rem;
   left: 45.75%;
   font-size: 3.2rem;
   visibility: visible;

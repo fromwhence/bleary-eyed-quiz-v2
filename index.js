@@ -184,7 +184,7 @@ window.addEventListener('scroll', function() {
 })
 
 scrollToTop = () => {
-  window.scroll({
+  window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
@@ -375,6 +375,7 @@ tryAgain = () => {
   endModal.classList.remove('active');
   scoreText.innerHTML = `Score:&nbsp; 0/50`;
   startQuiz();
+  scrollToTop();
 }
 
 tryAgainBtn.addEventListener('click', tryAgain);
