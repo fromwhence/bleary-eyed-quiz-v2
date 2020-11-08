@@ -27,7 +27,6 @@
 
 // Main components
 const topBar = document.getElementById('topbar');
-const quizContent = document.getElementById('quiz-content');
 
 // Modals and related buttons
 const startQuizBtn = document.getElementById('start-btn');
