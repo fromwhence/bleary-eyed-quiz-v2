@@ -373,7 +373,7 @@ tryAgain = () => {
   tryAgainLink.classList.remove('active');
   howToPlay.classList.add('active');
   endModal.classList.remove('active');
-  scoreText.innerHTML = `Score:&nbsp; 0/50`;
+  scoreText.innerHTML = `Score: 0/50`;
   startQuiz();
   scrollToTop();
 }
