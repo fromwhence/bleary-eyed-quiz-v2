@@ -21,11 +21,10 @@
 	unfocus.style = function(style){
 		styleText += style;
 	};
-
+ 
 	unfocus();
 })(document, window);
 
-// Main components
 const topBar = document.getElementById('topbar');
 
 // Modals and related buttons
