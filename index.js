@@ -336,7 +336,7 @@ nextBtn.addEventListener('click', getNewQuestion);
 
 incrementScore = availablePoints => {
   score += availablePoints;
-  scoreText.innerHTML = `Score:&nbsp; ${score}/${maxScore}`;
+  scoreText.innerHTML = `Score: ${score}/${maxScore}`;
 };
 
 lastQuestion = () => {
