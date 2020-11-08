@@ -166,6 +166,7 @@ const maxScore = maxQuestions * 5;
 
 // Add box-shadow to topbar when scrolling
 const topbarHeight = topbar.offsetHeight;
+console.log(topbarHeight);
 
 addShadowOnScroll = () => {
   topBar.classList.add('scroll-shadow')
@@ -208,23 +209,9 @@ resetScrollPosition = () => {
   });
 }
 
-/* In progress
-autoScroll = () => {
-  if (window.innerWidth >= 768) {
-    scrollToTop();
-  }
-  else {
-    console.log('Using auto scroll')
-    setScrollPosition();
-    console.log(scrollPosition);
-    quizContent.style.transition = 'all 500ms';
-    quizContent.style.transform = `translateY(${scrollPosition}px)`;
-    scrollToTop();
-    setTimeout(function() {
-      removeShadow();
-    }, 500);
-  }
-} */
+// scrollTo = () => {
+//   scrollToDiv.classList.add('active');
+// }
 
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
@@ -251,7 +238,7 @@ startQuiz = () => {
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
-  scrollToTop();
+  // scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -260,7 +247,6 @@ resetNextQuestion = () => {
     choiceContainerArr[i].lastElementChild.classList.remove('inactive');
   }
   deactivateNextButton();
-  scrollToTop();
   answerContainer.style.pointerEvents = 'auto';
 }
 
@@ -321,7 +307,7 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      scrollToTop();
+
       inactivateNames();
     }
 
@@ -334,7 +320,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
-      scrollToTop();
+      // scrollToTop();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
       console.log(choicesArr);
@@ -380,7 +366,7 @@ lastQuestion = () => {
   howToPlay.classList.remove('active');
   tryAgainLink.classList.add('active');
   nextBtn.classList.remove('active');
-  window.setTimeout(endQuizModal, 2500);
+  window.setTimeout(endQuizModal, 2000);
 }
 
 endQuizModal = () => {

@@ -73,6 +73,8 @@ body {
  color: var(--dark-gray);
  min-height: 100vh;
  position: relative;
+ display: flex;
+ flex-direction: column;
 }
 
 @media (min-width: 450px) {
@@ -368,6 +370,18 @@ button:focus {
   #topbar {
     padding: 0.85rem 2.25rem;
   }
+}
+
+/* Scroll to */
+#scroll-to {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 0px;
+}
+
+#scroll-to.active {
+  padding-top: 0px;
 }
 
 /* Quiz content */
@@ -689,10 +703,14 @@ button:focus {
   padding: 1rem 1.5rem 2rem;
   width: 100%;
 }
+
+.scroll-to-top {
+  text-decoration: none;
+}
  
 .choice-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 0.5rem;
   width: 100%;
@@ -707,6 +725,11 @@ button:focus {
   box-shadow: 0 .2rem .2rem 0 rgba(0, 0, 0, .4);
   transform: translateY(-0.1rem);
   transition: transform 200ms;
+}
+
+.choice-content {
+  display: flex;
+  flex-direction: row;
 }
 
 .choice-prefix {
@@ -729,11 +752,11 @@ button:focus {
 }
 
 .choice-container.inactive {
-  border: 1px solid var(--mid-gray);
+  border: 1px solid var(--mid-light-gray);
   border-top: none;
 }
 
-.choice-container.correct {
+.choice-container.correct  {
   border: 1px solid var(--correct-dark-green);
   border-top: none;
   background-color: var(--correct-bg);
