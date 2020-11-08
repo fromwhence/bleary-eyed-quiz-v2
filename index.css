@@ -393,9 +393,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 43px;
-  /* transition: all 500ms;
-  transform: translateY(0); */
+  padding-top: 44px;
 }
 
 #quiz-content-wrapper {
