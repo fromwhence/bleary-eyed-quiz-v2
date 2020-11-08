@@ -703,10 +703,6 @@ button:focus {
   padding: 1rem 1.5rem 2rem;
   width: 100%;
 }
-
-.scroll-to-top {
-  text-decoration: none;
-}
  
 .choice-container {
   display: flex;
@@ -725,11 +721,6 @@ button:focus {
   box-shadow: 0 .2rem .2rem 0 rgba(0, 0, 0, .4);
   transform: translateY(-0.1rem);
   transition: transform 200ms;
-}
-
-.choice-content {
-  display: flex;
-  flex-direction: row;
 }
 
 .choice-prefix {

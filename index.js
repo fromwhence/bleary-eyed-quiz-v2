@@ -193,26 +193,6 @@ scrollToTop = () => {
   removeShadow();
 }
 
-let scrollPosition = 0;
-
-setScrollPosition = () => {
-  window.addEventListener('scroll', function() { 
-    let scrollPosition = window.scrollY;
-    return scrollPosition;
-  }
-)};
-
-resetScrollPosition = () => {
-  quizContent.style.transform = 'unset';
-  window.scroll({
-    top: 0,
-  });
-}
-
-// scrollTo = () => {
-//   scrollToDiv.classList.add('active');
-// }
-
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
   setTimeout(function(){ 
@@ -238,7 +218,7 @@ startQuiz = () => {
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
-  // scrollToTop();
+  scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -307,7 +287,7 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-
+      scrollToTop();
       inactivateNames();
     }
 
@@ -320,7 +300,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
-      // scrollToTop();
+      scrollToTop();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
       console.log(choicesArr);
