@@ -380,6 +380,11 @@ button:focus {
   align-items: center;
   margin: 0 auto;
   padding-top: 42px;
+  transition: all 500ms;
+}
+
+#quiz-content.scroll {
+  transform: none;
 }
 
 @media (min-width: 450px) {
@@ -567,7 +572,7 @@ button:focus {
 @media (min-width: 1280px) {
   #hud-multiple-choice-wrapper {
     min-width: 335px;
-    margin-left: 3.2rem;
+    margin-left: 3.5rem;
   }
 }
 
