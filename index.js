@@ -27,7 +27,6 @@
 
 const topBar = document.getElementById('topbar');
 const quizContent = document.getElementById('quiz-content');
-const scrollContent = document.getElementsByClassName('scroll')[0];
 
 // Modals and related buttons
 const startQuizBtn = document.getElementById('start-btn');
@@ -192,25 +191,6 @@ scrollToTop = () => {
   removeShadow();
 }
 
-scrollToTopAuto = () => {
-  window.scroll({
-    top: 0,
-    behavior: 'auto'
-  });
-  removeShadow();
-}
-
-scrollTransform = () => {
-  console.log('Scroll test')
-  console.log(scrollPosition);
-  scrollContent.style.transform = `translateY(${scrollPosition}px)`;
-  removeShadow();
-}
-
-clearScrollTransform = () => {
-  scrollContent.style.transform = 'none';
-}
-
 imageTransition = () => {
   celebrityImage.classList.add('fade-in');
   setTimeout(function(){ 
@@ -245,8 +225,7 @@ resetNextQuestion = () => {
     choiceContainerArr[i].lastElementChild.classList.remove('inactive');
   }
   deactivateNextButton();
-  clearScrollTransform();
-  scrollToTopAuto();
+  scrollToTop();
   answerContainer.style.pointerEvents = 'auto';
 }
 
@@ -307,7 +286,7 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      scrollTransform();
+      scrollToTop();
       inactivateNames();
     }
 
@@ -320,7 +299,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
-      scrollTransform();
+      scrollToTop();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
       for (let i = 0; i < choicesArr.length; i++) {
