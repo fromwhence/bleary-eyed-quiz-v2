@@ -587,7 +587,7 @@ button:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem 1rem 1.75rem;
+  padding: 1rem 1.75rem 1rem 1.6rem;
   background-color: var(--mid-dark-gray);
 }
 
@@ -692,7 +692,7 @@ button:focus {
   }
 
 #answer-items {
-  padding: 1rem 1.5rem 2rem;
+  padding: 1rem 1.5rem 2rem 1.5rem;
   width: 100%;
 }
  

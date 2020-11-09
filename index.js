@@ -164,7 +164,6 @@ const maxScore = maxQuestions * 5;
 
 // Add box-shadow to topbar when scrolling
 const topbarHeight = topbar.offsetHeight;
-console.log(topbarHeight);
 
 addShadowOnScroll = () => {
   topBar.classList.add('scroll-shadow')
