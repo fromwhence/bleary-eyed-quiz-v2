@@ -33,6 +33,9 @@ font-family: 'Roboto Mono', monospace;
   padding: 0;
   margin: 0;
   /* border: 1px solid pink; */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
 }
 
 *, *::before, *::after {
@@ -44,9 +47,6 @@ html {
   /* Set font size for easy rem calculations
  * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
 */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
 }
 
 @media (min-width: 450px) {
@@ -307,7 +307,7 @@ button:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 0.85rem 1.5rem;
 }
 
 #topbar.scroll-shadow {
@@ -356,7 +356,7 @@ button:focus {
 
 @media (min-width: 450px) {
   #topbar {
-    padding: 0.75rem 2rem;
+    padding: 0.85rem 1.75rem;
   }
 }
 
@@ -368,20 +368,8 @@ button:focus {
 
 @media (min-width: 1280px) {
   #topbar {
-    padding: 0.85rem 2.25rem;
+    padding: 0.85rem 2.2rem;
   }
-}
-
-/* Scroll to */
-#scroll-to {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 0px;
-}
-
-#scroll-to.active {
-  padding-top: 0px;
 }
 
 /* Quiz content */
@@ -393,7 +381,13 @@ button:focus {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 44px;
+  padding-top: 41px;
+}
+
+@media (min-width: 450px) {
+  #quiz-content {
+    padding-top: 44px;
+  }
 }
 
 #quiz-content-wrapper {

@@ -216,7 +216,6 @@ startQuiz = () => {
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
-  scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -326,6 +325,9 @@ startQuizBtn.addEventListener('click', function() {
 howToPlay.addEventListener('click', function() {
   modal.classList.add('active');
   startQuizBtn.textContent = 'Resume';
+  // setTimeout(function(){ 
+  //   scrollToTop();
+  // }, 2000);
 })
 closeEndModal.addEventListener('click', function() {
   endModal.classList.remove('active');
