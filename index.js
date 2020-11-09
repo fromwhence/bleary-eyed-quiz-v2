@@ -164,7 +164,6 @@ const maxScore = maxQuestions * 5;
 
 // Add box-shadow to topbar when scrolling
 const topbarHeight = topbar.offsetHeight;
-console.log(topbarHeight);
 
 addShadowOnScroll = () => {
   topBar.classList.add('scroll-shadow')
@@ -184,7 +183,7 @@ window.addEventListener('scroll', function() {
 })
 
 scrollToTop = () => {
-  window.scrollTo({
+  window.scroll({
     top: 0,
     behavior: 'smooth'
   });
@@ -300,12 +299,11 @@ choicesArr.forEach(choice => {
       scrollToTop();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
-      console.log(choicesArr);
-        for (let i = 0; i < choicesArr.length; i++) {
-          if (choicesArr[i].classList.contains !== 'incorrect') {
-            choicesArr[i].classList.add('correct');
-          }
+      for (let i = 0; i < choicesArr.length; i++) {
+        if (choicesArr[i].classList.contains !== 'incorrect') {
+          choicesArr[i].classList.add('correct');
         }
+      }
     }
 
     if (classToApply === 'incorrect' &&  blurAmount === 0 && availableQuestions.length == 0) {
@@ -325,9 +323,6 @@ startQuizBtn.addEventListener('click', function() {
 howToPlay.addEventListener('click', function() {
   modal.classList.add('active');
   startQuizBtn.textContent = 'Resume';
-  // setTimeout(function(){ 
-  //   scrollToTop();
-  // }, 2000);
 })
 closeEndModal.addEventListener('click', function() {
   endModal.classList.remove('active');
