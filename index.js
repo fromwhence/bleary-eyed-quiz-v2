@@ -149,13 +149,13 @@ const questions = [
     answer: "Selena Gomez"
   },
   {
-    celebrity: "images/henry-golding.jpg",
+    celebrity: "images/john-cho.jpg",
     choice1: "Steven Yeun",
     choice2: "Harry Shum Jr.",
     choice3: "Henry Golding",
     choice4: "John Cho",
     choice5: "Daniel Henney",
-    answer: "Henry Golding"
+    answer: "John Cho"
   },
 ];
 

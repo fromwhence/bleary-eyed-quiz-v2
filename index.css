@@ -445,13 +445,13 @@ button:focus {
   justify-content: center;
   background-color: var(--light-gray);
   border: 1px solid var(--mid-light-gray);
-  margin: 1.5rem;
+  margin: 1.25rem;
   overflow: hidden;
 }
 
 #celebrity-image {
   opacity: 0;
-  border: 0.4rem solid #fff;
+  border: 0.25rem solid #fff;
   align-self: center;
 }
 
@@ -552,7 +552,7 @@ button:focus {
     justify-content: flex-start;
     min-width: 300px;
     height: auto;
-    margin-left: 2.5rem;
+    margin-left: 2.75rem;
     background: var(--light-gray);
   }
 }
