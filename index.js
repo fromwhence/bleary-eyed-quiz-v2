@@ -27,6 +27,7 @@
 
 const topBar = document.getElementById('topbar');
 const quizContent = document.getElementById('quiz-content');
+const scrollContent = document.getElementsByClassName('scroll')[0];
 
 // Modals and related buttons
 const startQuizBtn = document.getElementById('start-btn');
@@ -191,7 +192,13 @@ scrollToTop = () => {
   removeShadow();
 }
 
-let scrollContent = document.getElementsByClassName('scroll')[0];
+scrollToTopAuto = () => {
+  window.scroll({
+    top: 0,
+    behavior: 'auto'
+  });
+  removeShadow();
+}
 
 scrollTransform = () => {
   console.log('Scroll test')
@@ -200,12 +207,8 @@ scrollTransform = () => {
   removeShadow();
 }
 
-// Clear transform value
 clearScrollTransform = () => {
   scrollContent.style.transform = 'none';
-  // setTimeout(() => {
-  //   quizContent.classList.remove('scroll');
-  // }, 1200); 
 }
 
 imageTransition = () => {
@@ -227,12 +230,13 @@ deactivateNextButton = () => {
 }
 
 startQuiz = () => {
-  // startQuizBtn.addEventListener('click', scrollToTop);
+  startQuizBtn.addEventListener('click', scrollToTop);
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions]
   getNewQuestion();
   imageTransition();
+  scrollToTop();
 }
 
 resetNextQuestion = () => {
@@ -242,7 +246,7 @@ resetNextQuestion = () => {
   }
   deactivateNextButton();
   clearScrollTransform();
-  scrollToTop();
+  scrollToTopAuto();
   answerContainer.style.pointerEvents = 'auto';
 }
 
@@ -303,7 +307,6 @@ choicesArr.forEach(choice => {
       activateNextButton();
       celebrityImage.style.filter = 'blur(0)';
       answerContainer.style.pointerEvents = 'none';
-      // scrollToTop();
       scrollTransform();
       inactivateNames();
     }
@@ -317,7 +320,7 @@ choicesArr.forEach(choice => {
     if (classToApply === 'incorrect' &&  blurAmount === 0) {
       incrementScore(availablePoints);
       activateNextButton();
-      // scrollToTop();
+      scrollTransform();
       let choices = document.getElementsByClassName('choice-container');
       const choicesArr = [...choices];
       for (let i = 0; i < choicesArr.length; i++) {
@@ -393,7 +396,7 @@ tryAgain = () => {
   endModal.classList.remove('active');
   scoreText.innerHTML = `Score: 0/50`;
   startQuiz();
-  // scrollToTop();
+  scrollToTop();
 }
 
 tryAgainBtn.addEventListener('click', tryAgain);
