@@ -381,7 +381,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 41px;
+  padding-top: 42px;
 }
 
 @media (min-width: 450px) {
