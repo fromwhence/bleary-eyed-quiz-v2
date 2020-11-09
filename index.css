@@ -34,8 +34,6 @@ font-family: 'Roboto Mono', monospace;
   margin: 0;
   /* border: 1px solid pink; */
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
 }
 
 *, *::before, *::after {
