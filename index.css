@@ -1,9 +1,9 @@
- /* Fonts 
+/* Fonts 
 font-family: 'Nunito Sans', sans-serif;
 font-family: 'Roboto Mono', monospace;
 */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 :root {
   /* Deep blue color scheme */
@@ -23,24 +23,26 @@ font-family: 'Roboto Mono', monospace;
   --correct-green: rgb(0, 190, 79);
   --correct-dark-green: rgb(0, 104, 47);
   --correct-bg: rgb(247, 255, 251);
-  
+
   --incorrect-red: rgb(216, 14, 14);
   --incorrect-dark-red: rgb(172, 5, 5);
   --incorrect-bg: rgb(255, 244, 244);
 }
- 
+
 * {
   padding: 0;
   margin: 0;
   /* border: 1px solid pink; */
-  scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
   /* Set font size for easy rem calculations
  * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
@@ -66,23 +68,24 @@ html {
 }
 
 body {
- font-family: 'Nunito Sans', sans-serif;
- background-color: var(--gradient-gray);
- color: var(--dark-gray);
- min-height: 100vh;
- position: relative;
- display: flex;
- flex-direction: column;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--gradient-gray);
+  color: var(--dark-gray);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 450px) {
   body {
     background: var(--gradient-gray);
-    background-image: 
-      linear-gradient(
-        0deg, rgb(167, 186, 204) 0%, 
-      rgba(227, 233, 240,1) 25%, 
-      rgba(255, 255, 255, 1) 100%);
+    background-image: linear-gradient(
+      0deg,
+      rgb(167, 186, 204) 0%,
+      rgba(227, 233, 240, 1) 25%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
 }
 
@@ -137,7 +140,8 @@ button:focus {
   opacity: 1;
 }
 
-#modal-content, #end-modal-content {
+#modal-content,
+#end-modal-content {
   position: absolute;
   top: 10%;
   width: 90%;
@@ -147,18 +151,17 @@ button:focus {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-  box-shadow: 
-    0 .7rem 1.25rem rgba(0, 0, 0, 0.3), 
+  box-shadow: 0 0.7rem 1.25rem rgba(0, 0, 0, 0.3),
     0 -1rem 1rem rgba(0, 0, 0, 0.3);
 }
 
-#modal-content h1, #end-modal-content h1 {
+#modal-content h1,
+#end-modal-content h1 {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 100;
   color: #fff;
-  text-shadow: 
-    0 3px 4px rgba(255, 255, 255, 0.8), 
+  text-shadow: 0 3px 4px rgba(255, 255, 255, 0.8),
     0 -3px 4px rgba(255, 255, 255, 0.8);
   padding: 2rem 1.9rem 1.9rem;
   background-color: var(--mid-gray);
@@ -193,7 +196,7 @@ button:focus {
 #modal-content li {
   font-size: 1.6rem;
   margin: 0.75em;
-  list-style-type: '● ';
+  list-style-type: "● ";
   line-height: 1.5;
 }
 
@@ -205,7 +208,6 @@ button:focus {
   padding-top: 2rem;
   margin: 0 1.5rem 2.5rem 1.5rem;
 }
-
 
 /* End of game modal */
 
@@ -219,7 +221,7 @@ button:focus {
 }
 
 #end-modal-content h1 {
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-shadow: none;
   font-weight: 400;
   text-shadow: 1px 1px 3px rgb(0, 0, 0, 0.3);
@@ -266,7 +268,7 @@ button:focus {
 }
 
 #share-container a {
-  padding: .3rem;
+  padding: 0.3rem;
 }
 
 .share-icons {
@@ -280,14 +282,16 @@ button:focus {
 }
 
 @media (max-width: 375px) {
-  #modal-content, #end-modal-content {
+  #modal-content,
+  #end-modal-content {
     top: 8%;
     width: 100%;
   }
 }
 
 @media (min-width: 450px) {
-  #modal-content, #end-modal-content {
+  #modal-content,
+  #end-modal-content {
     top: 13%;
   }
 }
@@ -309,15 +313,14 @@ button:focus {
 }
 
 #topbar.scroll-shadow {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .quiz-title h1 {
   font-size: 1.8rem;
   font-weight: 300;
   color: #fff;
-  text-shadow: 
-    0 3px 5px rgba(255, 255, 255, 0.8), 
+  text-shadow: 0 3px 5px rgba(255, 255, 255, 0.8),
     0 -6px 6px rgba(255, 255, 255, 0.5);
   pointer-events: none;
 }
@@ -468,13 +471,21 @@ button:focus {
 
 /* Image animation */
 @keyframes fadeInImage {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeInImage {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Image media queries */
@@ -590,7 +601,7 @@ button:focus {
 }
 
 .hud-item {
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
 #progress-text {
@@ -601,7 +612,7 @@ button:focus {
 #progress-bar {
   width: 10rem;
   height: 1.4rem;
-  border: .1rem solid var(--light-gray);
+  border: 0.1rem solid var(--light-gray);
   background-color: #fff;
 }
 
@@ -685,15 +696,17 @@ button:focus {
   margin: 0 auto;
   background: var(--gradient-gray);
   background-image: linear-gradient(
-    0deg, rgb(167, 186, 204) 0%, 
-    rgba(227, 233, 240,1) 100%);
-  }
+    0deg,
+    rgb(167, 186, 204) 0%,
+    rgba(227, 233, 240, 1) 100%
+  );
+}
 
 #answer-items {
   padding: 1rem 1.5rem 2rem 1.5rem;
   width: 100%;
 }
- 
+
 .choice-container {
   display: flex;
   justify-content: flex-start;
@@ -706,15 +719,16 @@ button:focus {
   transition: all 150ms;
 }
 
-.choice-container:hover, .choice-container:focus {
+.choice-container:hover,
+.choice-container:focus {
   cursor: pointer;
-  box-shadow: 0 .2rem .2rem 0 rgba(0, 0, 0, .4);
+  box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.4);
   transform: translateY(-0.1rem);
   transition: transform 200ms;
 }
 
 .choice-prefix {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 1.8rem;
   background-color: var(--mid-blue);
   padding: 1.1rem 1.5rem;
@@ -737,7 +751,7 @@ button:focus {
   border-top: none;
 }
 
-.choice-container.correct  {
+.choice-container.correct {
   border: 1px solid var(--correct-dark-green);
   border-top: none;
   background-color: var(--correct-bg);
@@ -794,7 +808,6 @@ button:focus {
 }
 
 @media (min-width: 666px) {
-  
   #multiple-choice-container {
     background: var(--light-gray);
   }
@@ -831,7 +844,6 @@ button:focus {
   }
 }
 
-
 /* Next button */
 .next-btn-container {
   display: none;
@@ -862,7 +874,7 @@ button:focus {
     margin-right: 0.5rem;
   }
 
-  #next-btn.active  {
+  #next-btn.active {
     background-color: var(--mid-blue);
     pointer-events: auto;
     transition: 300ms;
