@@ -12,7 +12,7 @@ font-family: 'Roboto Mono', monospace;
   /* Dark gray color scheme */
   --dark-gray: rgb(56, 72, 85);
   --mid-dark-gray: rgb(69, 91, 112);
-  --mid-gray: rgb(47, 91, 129);
+  --mid-gray-blue: rgb(47, 91, 129);
   --mid-light-gray: rgb(168, 186, 199);
   --gradient-gray: rgb(167, 186, 204);
   --light-gray: rgb(233, 238, 243);
@@ -150,6 +150,7 @@ button:focus {
   flex-direction: column;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--dark-gray);
   backdrop-filter: blur(10px);
   box-shadow: 0 0.7rem 1.25rem rgba(0, 0, 0, 0.3),
     0 -1rem 1rem rgba(0, 0, 0, 0.3);
@@ -164,7 +165,7 @@ button:focus {
   text-shadow: 0 3px 4px rgba(255, 255, 255, 0.8),
     0 -3px 4px rgba(255, 255, 255, 0.8);
   padding: 2rem 1.9rem 1.9rem;
-  background-color: var(--mid-gray);
+  background-color: var(--mid-gray-blue);
 }
 
 .modal-inner-background {
@@ -175,7 +176,6 @@ button:focus {
   background-color: #fff;
   margin: 1.5rem;
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-  border: 1px solid var(--mid-gray);
   border-top: none;
 }
 
