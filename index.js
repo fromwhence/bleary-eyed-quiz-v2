@@ -1,5 +1,5 @@
 // Removes :focus outline for mouse users
-"use strice";
+// "use strict";
 
 (function (document, window) {
   if (!document || !window) {
