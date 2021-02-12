@@ -651,7 +651,7 @@ button:focus {
   }
 
   .hud-next-arrow {
-    display: none;
+    visibility: hidden;
   }
 }
 
