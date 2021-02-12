@@ -101,7 +101,7 @@ button {
   border: 1px solid var(--mid-dark-gray);
   border-top: none;
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: 0;
   padding: 1.7rem;
   transition: all 300ms;
 }
@@ -297,7 +297,7 @@ button:focus {
   top: 0;
   color: #fff;
   background-color: var(--mid-dark-gray);
-  border-bottom: 1px solid var(--gradient-gray);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
   z-index: 2;
   display: flex;
@@ -389,7 +389,7 @@ button:focus {
 @media (min-width: 666px) {
   .quiz-content-wrapper {
     border: 1px solid var(--mid-light-gray);
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     background-color: #fff;
     margin: 1.75rem auto;
     padding: 3.25rem 12rem 4rem;
@@ -427,7 +427,7 @@ button:focus {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  background-color: var(--light-gray);
+  background-color: var(--mid-light-gray);
 }
 
 .celebrity-image-container {
@@ -435,7 +435,7 @@ button:focus {
   width: 100%;
   height: auto;
   justify-content: center;
-  background-color: var(--light-gray);
+  background-color: var(--mid-light-gray);
   overflow: hidden;
 }
 
@@ -584,7 +584,7 @@ button:focus {
   align-items: center;
   padding: 1rem 1.75rem 1rem 1.6rem;
   background-color: var(--mid-dark-gray);
-  border-top: 1px solid var(--gradient-gray);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hud-item {
@@ -606,7 +606,7 @@ button:focus {
 
 .hud-next-arrow {
   position: absolute;
-  top: 0.57rem;
+  top: 0.575rem;
   left: 45.75%;
   font-size: 3.2rem;
   visibility: visible;
