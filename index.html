@@ -14,14 +14,15 @@
       src="https://kit.fontawesome.com/0e8ff5a22e.js"
       crossorigin="anonymous"
     ></script>
-    <script defer src="index.js"></script>
+    <script defer src="js/quiz-content.js"></script>
+    <script defer src="js/index.js"></script>
     <title>Celebrity Photo Quiz</title>
   </head>
   <body>
     <!-- Welcome modal -->
     <div class="modal active">
-      <div id="modal-content">
-        <h1 id="welcome-header">Bleary-eyed Quiz</h1>
+      <div class="modal-window">
+        <h1>Bleary-eyed Quiz</h1>
         <div class="modal-inner-background">
           <h2>How to play:</h2>
           <ul>
@@ -38,23 +39,23 @@
               and the point value decreases by one.
             </li>
           </ul>
-          <button id="start-btn" class="btn start-btn">Start Quiz</button>
+          <button class="btn start-btn">Start Quiz</button>
         </div>
       </div>
     </div>
     <!-- End of game modal -->
-    <div class="modal">
-      <div id="end-modal-content" class="">
-        <i id="close-end-modal" class="fas fa-times"></i>
+    <div class="end-modal">
+      <div class="end-modal-window" class="">
+        <i class="close-end-modal fas fa-times"></i>
         <h1>Final Score</h1>
         <div class="modal-inner-background end">
-          <div id="final-score"></div>
-          <div id="end-message" class="end-message">
-            <h2 id="end-heading">Great job!</h2>
-            <p id="end-paragraph">You sure know your celebrities!</p>
+          <div class="final-score"></div>
+          <div class="end-message">
+            <h2 class="end-heading">Great job!</h2>
+            <p class="end-paragraph">You sure know your celebrities!</p>
           </div>
           <!-- Social sharing buttons -->
-          <div id="share-container">
+          <div class="share-container">
             <h2>Share the quiz:</h2>
             <div class="share-icons">
               <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -62,18 +63,20 @@
             </div>
             <!-- End sharing buttons -->
           </div>
-          <button id="try-again-btn" class="btn">Try Again</button>
+          <button class="try-again-btn" class="btn">Try Again</button>
         </div>
       </div>
     </div>
-    <div id="topbar">
+    <div class="topbar">
       <div class="quiz-title">
         <h1>Bleary-eyed Quiz</h1>
       </div>
       <div>
-        <ul id="topbar-links">
-          <li id="how-to-play" class="active"><a href="#">How to Play</a></li>
-          <li id="try-again"><a href="#">Try Again</a></li>
+        <ul class="topbar-links">
+          <li class="how-to-play active">
+            <a href="#">How to Play</a>
+          </li>
+          <li class="try-again"><a href="#">Try Again</a></li>
         </ul>
       </div>
     </div>
@@ -81,10 +84,10 @@
       <div class="quiz-content-wrapper">
         <div class="image-outer-wrapper">
           <div class="image-wrapper">
-            <div id="image-container">
+            <div class="image-container">
               <div class="celebrity-image-container">
                 <img
-                  id="celebrity-image"
+                  class="celebrity-image"
                   class="blur-image"
                   src=""
                   alt="blurry image"
@@ -93,29 +96,26 @@
             </div>
           </div>
         </div>
-        <div id="hud-multiple-choice-wrapper">
+        <div class="hud-multiple-choice-wrapper">
           <div class="hud-wrapper">
-            <div id="hud">
+            <div class="hud">
               <div class="hud-item">
-                <p id="progress-text" class="hud-prefix"></p>
-                <div id="progress-bar">
-                  <div id="progress-bar-full"></div>
+                <!-- <p class="progress-text" class="hud-prefix"></p> -->
+                <div class="progress-bar">
+                  <div class="progress-bar-full"></div>
                 </div>
               </div>
               <div class="hud-item">
-                <i
-                  id="hud-next-arrow"
-                  class="far fa-arrow-alt-circle-right"
-                ></i>
+                <i class="hud-next-arrow far fa-arrow-alt-circle-right"></i>
               </div>
               <div class="hud-item">
-                <p class="hud-prefix" id="score">Score: 0/50</p>
+                <p class="hud-prefix score">Score: 0/50</p>
               </div>
             </div>
           </div>
           <div class="multiple-choice-wrapper">
-            <div id="multiple-choice-container">
-              <div id="answer-items">
+            <div class="multiple-choice-container">
+              <div class="answer-items">
                 <div class="choice-container">
                   <p class="choice-prefix">A</p>
                   <p class="choice-text" data-number="1"></p>
@@ -140,7 +140,7 @@
             </div>
           </div>
           <div class="next-btn-container">
-            <button id="next-btn" class="">
+            <button class="next-btn" class="">
               <span>Next</span><i class="fas fa-chevron-right"></i>
             </button>
           </div>

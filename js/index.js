@@ -1,65 +1,38 @@
-// Removes :focus outline for mouse users
 // "use strict";
 
-(function (document, window) {
-  if (!document || !window) {
-    return;
-  }
-
-  var styleText =
-    "::-moz-focus-inner{border:0 !important;}:focus{outline: none !important;";
-  var unfocus_style = document.createElement("STYLE");
-
-  window.unfocus = function () {
-    document.getElementsByTagName("HEAD")[0].appendChild(unfocus_style);
-    document.addEventListener("mousedown", function () {
-      unfocus_style.innerHTML = styleText + "}";
-    });
-    document.addEventListener("keydown", function () {
-      unfocus_style.innerHTML = "";
-    });
-  };
-
-  unfocus.style = function (style) {
-    styleText += style;
-  };
-
-  unfocus();
-})(document, window);
-
-const topBar = document.getElementById("topbar");
+const topBar = document.querySelector(".topbar");
 const quizContent = document.getElementById("quiz-content");
 
 // Modals and related buttons
-const startQuizBtn = document.getElementById("start-btn");
-const modal = document.getElementsByClassName("modal")[0];
-const endModal = document.getElementsByClassName("modal")[1];
-const endModalContent = document.getElementById("end-modal-content");
-const closeEndModal = document.getElementById("close-end-modal");
-const howToPlay = document.getElementById("how-to-play");
-const tryAgainLink = document.getElementById("try-again");
-const tryAgainBtn = document.getElementById("try-again-btn");
+const startQuizBtn = document.querySelector(".start-btn");
+const modal = document.querySelector(".modal");
+const endModal = document.querySelector(".end-modal");
+const endModalContent = document.querySelector(".end-modal-window");
+const closeEndModal = document.querySelector(".close-end-modal");
+const howToPlay = document.querySelector(".how-to-play");
+const tryAgainLink = document.querySelector(".try-again");
+const tryAgainBtn = document.querySelector(".try-again-btn");
 
 // Multiple choice data
-const celebrityImage = document.getElementById("celebrity-image");
-const choicesArr = Array.from(document.getElementsByClassName("choice-text"));
+const celebrityImage = document.querySelector(".celebrity-image");
+const choicesArr = Array.from(document.querySelectorAll(".choice-text"));
 const choiceContainerArr = Array.from(
-  document.getElementsByClassName("choice-container")
+  document.querySelectorAll(".choice-container")
 );
-const answerContainer = document.getElementById("answer-items");
+const answerContainer = document.querySelector(".answer-items");
 
 // Hud data
-const questionCounterText = document.getElementById("question-counter");
-const progressBarFull = document.getElementById("progress-bar-full");
-const scoreText = document.getElementById("score");
-const hudNextArrow = document.getElementById("hud-next-arrow");
-const nextBtn = document.getElementById("next-btn");
+const questionCounterText = document.querySelector(".question-counter");
+const progressBarFull = document.querySelector(".progress-bar-full");
+const scoreText = document.querySelector(".score");
+const hudNextArrow = document.querySelector(".hud-next-arrow");
+const nextBtn = document.querySelector(".next-btn");
 
 // End of game data
-const finalScore = document.getElementById("final-score");
-const endOfGameHeading = document.getElementById("end-heading");
-const endOfGameText = document.getElementById("end-paragraph");
-const shareLink = document.getElementById("share-link");
+const finalScore = document.querySelector(".final-score");
+const endOfGameHeading = document.querySelector(".end-heading");
+const endOfGameText = document.querySelector(".end-paragraph");
+// const shareLink = document.getElementById("share-link");
 
 // Quiz play variables
 let currentQuestion = {};
@@ -69,110 +42,16 @@ let availablePoints = 5;
 let score = 0;
 let blurAmount = 28;
 
-// Quiz content
-const questions = [
-  {
-    celebrity: "images/taylor-swift.jpg",
-    choice1: "Haley Bennett",
-    choice2: "Taylor Swift",
-    choice3: "Leelee Sobieski",
-    choice4: "Shailene Woodley",
-    choice5: "Jennifer Lawrence",
-    answer: "Taylor Swift",
-  },
-  {
-    celebrity: "images/keanu-reeves.jpg",
-    choice1: "Roman Reigns",
-    choice2: "Jack Matthews",
-    choice3: "Jason Momoa",
-    choice4: "Russell Brand",
-    choice5: "Keanu Reeves",
-    answer: "Keanu Reeves",
-  },
-  {
-    celebrity: "images/sofia-vergara.jpg",
-    choice1: "Jennifer Lopez",
-    choice2: "Sofía Vergara",
-    choice3: "Jessica Alba",
-    choice4: "Salma Hayek",
-    choice5: "Penélope Cruz",
-    answer: "Sofía Vergara",
-  },
-  {
-    celebrity: "images/nicki-minaj-2.jpg",
-    choice1: "Cardi B",
-    choice2: "Nicki Minaj",
-    choice3: "Raven Symoné",
-    choice4: "Kylie Jenner",
-    choice5: "Zendaya",
-    answer: "Nicki Minaj",
-  },
-  {
-    celebrity: "images/johnny-depp.jpg",
-    choice1: "Robert Downey Jr.",
-    choice2: "Omar Metwally",
-    choice3: "Hugh Jackman",
-    choice4: "Johnny Depp",
-    choice5: "Jeffery Dean Morgan",
-    answer: "Johnny Depp",
-  },
-  {
-    celebrity: "images/elijah-wood.png",
-    choice1: "Elijah Wood",
-    choice2: "Daniel Radcliffe",
-    choice3: "Liam Hemsworth",
-    choice4: "Tobey Maguire",
-    choice5: "Justin Timberlake",
-    answer: "Elijah Wood",
-  },
-  {
-    celebrity: "images/rihanna-2.jpg",
-    choice1: "Rihanna",
-    choice2: "Megan Fox",
-    choice3: "Cardi B",
-    choice4: "Beyoncé",
-    choice5: "Ally Brooke",
-    answer: "Rihanna",
-  },
-  {
-    celebrity: "images/anthony-mackie.jpg",
-    choice1: "Anthony Mackie",
-    choice2: "Don Cheadle",
-    choice3: "Jamie Foxx",
-    choice4: "Idris Elba",
-    choice5: "Michael B. Jordan",
-    answer: "Anthony Mackie",
-  },
-  {
-    celebrity: "images/selena-gomez.jpg",
-    choice1: "Selena Gomez",
-    choice2: "Victoria Justice",
-    choice3: "Ariana Grande",
-    choice4: "Camila Cabello",
-    choice5: "Elizabeth Gillies",
-    answer: "Selena Gomez",
-  },
-  {
-    celebrity: "images/john-cho.jpg",
-    choice1: "Steven Yeun",
-    choice2: "Harry Shum Jr.",
-    choice3: "Henry Golding",
-    choice4: "John Cho",
-    choice5: "Daniel Henney",
-    answer: "John Cho",
-  },
-];
-
 const maxQuestions = questions.length;
 const maxScore = maxQuestions * 5;
 
 // Add box-shadow to topbar when scrolling
-const topbarHeight = topbar.offsetHeight;
+const topbarHeight = topBar.offsetHeight;
 
-addShadowOnScroll = () => {
+const addShadowOnScroll = () => {
   topBar.classList.add("scroll-shadow");
 };
-removeShadow = () => {
+const removeShadow = () => {
   topBar.classList.remove("scroll-shadow");
 };
 
@@ -185,24 +64,15 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Scroll Ver1
-// scrollToTop = () => {
-//   window.scroll({
-//     top: 0,
-//     behavior: "smooth",
-//   });
-//   removeShadow();
-// };
-
+// Scroll to top after correct answer on small devices
 const topOfPage = document.querySelector(".top");
-console.log(topOfPage);
 
-const scrollToTop = function () {
+const scrollToTop = () => {
   topOfPage.scrollIntoView({ behavior: "smooth" });
   removeShadow();
 };
 
-imageTransition = () => {
+const imageTransition = () => {
   celebrityImage.classList.add("fade-in");
   setTimeout(function () {
     celebrityImage.classList.remove("fade-in");
@@ -210,17 +80,17 @@ imageTransition = () => {
   celebrityImage.style.opacity = 1;
 };
 
-activateNextButton = () => {
+const activateNextButton = () => {
   hudNextArrow.classList.add("active");
   nextBtn.classList.add("active");
 };
 
-deactivateNextButton = () => {
+const deactivateNextButton = () => {
   hudNextArrow.classList.remove("active");
   nextBtn.classList.remove("active");
 };
 
-startQuiz = () => {
+const startQuiz = () => {
   startQuizBtn.addEventListener("click", scrollToTop);
   questionCounter = 0;
   score = 0;
@@ -230,7 +100,7 @@ startQuiz = () => {
   scrollToTop();
 };
 
-resetNextQuestion = () => {
+const resetNextQuestion = () => {
   for (let i = 0; i < choiceContainerArr.length; i++) {
     choiceContainerArr[i].classList.remove("correct", "incorrect", "inactive");
     choiceContainerArr[i].lastElementChild.classList.remove("inactive");
@@ -240,14 +110,14 @@ resetNextQuestion = () => {
   answerContainer.style.pointerEvents = "auto";
 };
 
-inactivateNames = () => {
+const inactivateNames = () => {
   for (let i = 0; i < choiceContainerArr.length; i++)
     if (!choiceContainerArr[i].classList.contains("correct", "incorrect")) {
       choiceContainerArr[i].classList.add("inactive");
     }
 };
 
-shuffleNames = (names) => {
+const shuffleNames = (names) => {
   for (let i = names.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
     const temp = names[i];
@@ -257,7 +127,7 @@ shuffleNames = (names) => {
   return names;
 };
 
-getNewQuestion = () => {
+const getNewQuestion = () => {
   resetNextQuestion();
   questionCounter++;
   progressBarFull.style.width = `${(questionCounter / maxQuestions) * 100}%`;
@@ -347,25 +217,16 @@ howToPlay.addEventListener("click", function () {
 });
 closeEndModal.addEventListener("click", function () {
   endModal.classList.remove("active");
-  endModalContent.classList.remove("active");
 });
 hudNextArrow.addEventListener("click", getNewQuestion);
 nextBtn.addEventListener("click", getNewQuestion);
 
-incrementScore = (availablePoints) => {
+const incrementScore = (availablePoints) => {
   score += availablePoints;
   scoreText.innerHTML = `Score: ${score}/${maxScore}`;
 };
 
-lastQuestion = () => {
-  hudNextArrow.classList.remove("active");
-  howToPlay.classList.remove("active");
-  tryAgainLink.classList.add("active");
-  nextBtn.classList.remove("active");
-  window.setTimeout(endQuizModal, 2000);
-};
-
-endQuizModal = () => {
+const endQuizModal = () => {
   endModal.classList.add("active");
   endModalContent.classList.add("active");
   finalScore.innerHTML = `${score}/${maxScore}`;
@@ -387,7 +248,15 @@ endQuizModal = () => {
   }
 };
 
-tryAgain = () => {
+const lastQuestion = () => {
+  hudNextArrow.classList.remove("active");
+  howToPlay.classList.remove("active");
+  tryAgainLink.classList.add("active");
+  nextBtn.classList.remove("active");
+  window.setTimeout(endQuizModal, 2000);
+};
+
+const tryAgain = () => {
   tryAgainLink.classList.remove("active");
   howToPlay.classList.add("active");
   endModal.classList.remove("active");
