@@ -160,7 +160,6 @@ choiceContainerArr.forEach(choice => {
   choice.addEventListener('click', e => {
     let selectedCeleb = e.target.parentElement;
     selectedCeleb = selectedCeleb.lastElementChild;
-    console.log(selectedCeleb);
     let classToApply = 'incorrect';
     if (selectedCeleb.textContent === currentQuestion.answer) {
       classToApply = 'correct';
