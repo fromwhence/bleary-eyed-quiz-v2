@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 
 const topBar = document.querySelector(".topbar");
 const quizContent = document.getElementById("quiz-content");
@@ -37,7 +37,7 @@ const endOfGameText = document.querySelector(".end-paragraph");
 // Quiz play variables
 let currentQuestion = {};
 let questionCounter = 0;
-let availbleQuestions = [];
+let availableQuestions = [];
 let availablePoints = 5;
 let score = 0;
 let blurAmount = 28;
@@ -56,7 +56,7 @@ const removeShadow = () => {
 };
 
 window.addEventListener("scroll", function () {
-  scrollPosition = window.scrollY;
+  const scrollPosition = window.scrollY;
   if (scrollPosition >= topbarHeight) {
     addShadowOnScroll();
   } else {
@@ -80,14 +80,13 @@ const imageTransition = () => {
   celebrityImage.style.opacity = 1;
 };
 
+const defaultNextButton = () => {
+  hudNextArrow.classList.remove("active");
+  nextBtn.classList.remove("active");
+};
 const activateNextButton = () => {
   hudNextArrow.classList.add("active");
   nextBtn.classList.add("active");
-};
-
-const deactivateNextButton = () => {
-  hudNextArrow.classList.remove("active");
-  nextBtn.classList.remove("active");
 };
 
 const startQuiz = () => {
@@ -101,15 +100,16 @@ const startQuiz = () => {
 };
 
 const resetNextQuestion = () => {
+  scrollToTop();
+  defaultNextButton();
   for (let i = 0; i < choiceContainerArr.length; i++) {
     choiceContainerArr[i].classList.remove("correct", "incorrect", "inactive");
     choiceContainerArr[i].lastElementChild.classList.remove("inactive");
   }
-  deactivateNextButton();
-  scrollToTop();
   answerContainer.style.pointerEvents = "auto";
 };
 
+// Upon correct answer, gray out incorrect choices.
 const inactivateNames = () => {
   for (let i = 0; i < choiceContainerArr.length; i++)
     if (!choiceContainerArr[i].classList.contains("correct", "incorrect")) {
@@ -117,6 +117,7 @@ const inactivateNames = () => {
     }
 };
 
+// Shuffle celebrity names for each question
 const shuffleNames = (names) => {
   for (let i = names.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
@@ -157,13 +158,13 @@ const getNewQuestion = () => {
 
 choicesArr.forEach((choice) => {
   choice.addEventListener("click", (e) => {
-    e.preventDefault;
-    const selectedChoice = e.target;
+    const selectedCeleb = e.target;
+    // console.log(selectedCeleb.parentElement);
     let classToApply = "incorrect";
-    if (selectedChoice.textContent === currentQuestion.answer) {
+    if (selectedCeleb.textContent === currentQuestion.answer) {
       classToApply = "correct";
     }
-    selectedChoice.parentElement.classList.add(classToApply);
+    selectedCeleb.parentElement.classList.add(classToApply);
 
     if (classToApply === "correct") {
       incrementScore(availablePoints);

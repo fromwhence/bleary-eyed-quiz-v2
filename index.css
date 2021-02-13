@@ -96,7 +96,7 @@ button {
   width: 100%;
   font-size: 1.85rem;
   letter-spacing: 1px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
   background-color: var(--dark-blue);
   border: 1px solid var(--mid-dark-gray);
   border-top: none;
@@ -108,8 +108,7 @@ button {
 
 button:hover,
 button:focus {
-  background-color: var(--mid-blue);
-  text-shadow: 1px 1px 3px rgb(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 1);
 }
 
 /* Modals */
@@ -606,7 +605,7 @@ button:focus {
 
 .hud-next-arrow {
   position: absolute;
-  top: 0.575rem;
+  top: 0.55rem;
   left: 45.75%;
   font-size: 3.2rem;
   visibility: visible;
@@ -686,7 +685,7 @@ button:focus {
 }
 
 .answer-items {
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 0.875rem 1.5rem 1.5rem;
   width: 100%;
 }
 
@@ -694,7 +693,7 @@ button:focus {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   width: 100%;
   background-color: white;
   border: 1px solid var(--mid-dark-gray);
@@ -714,7 +713,7 @@ button:focus {
   font-family: "Roboto Mono", monospace;
   font-size: 1.8rem;
   background-color: var(--mid-blue);
-  padding: 1.1rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   color: #fff;
 }
 
@@ -774,7 +773,7 @@ button:focus {
   }
 
   .answer-items {
-    padding: 0.7rem 0 2.5rem;
+    padding: 0 0 2.5rem;
   }
 
   .choice-text {
@@ -802,6 +801,10 @@ button:focus {
   .choice-text {
     text-align: left;
     padding-left: 2rem;
+  }
+
+  .answer-items {
+    padding-top: 0.725rem;
   }
 
   .choice-prefix {
