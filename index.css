@@ -687,10 +687,13 @@ button:focus {
 .answer-items {
   padding: 0.875rem 1.5rem 1.5rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .choice-container {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 0.4rem;
@@ -710,6 +713,7 @@ button:focus {
 }
 
 .choice-prefix {
+  display: inline-block;
   font-family: "Roboto Mono", monospace;
   font-size: 1.8rem;
   background-color: var(--mid-blue);
