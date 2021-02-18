@@ -156,6 +156,7 @@ const getNewQuestion = () => {
   celebrityImage.style.filter = `blur(${blurAmount}px)`;
 };
 
+// Celebrity name selection
 choiceContainerArr.forEach(choice => {
   choice.addEventListener('click', e => {
     let selectedCeleb = e.target.parentElement;
@@ -212,23 +213,41 @@ choiceContainerArr.forEach(choice => {
   });
 });
 
-startQuizBtn.addEventListener('click', function (e) {
+// Hud nav and score display
+hudNextArrow.addEventListener('click', getNewQuestion);
+nextBtn.addEventListener('click', getNewQuestion);
+document.addEventListener('keydown', function (e) {
+  if (nextBtn.classList.contains('active') && e.key === 'ArrowRight') {
+    getNewQuestion();
+  }
+});
+
+const incrementScore = availablePoints => {
+  score += availablePoints;
+  scoreText.innerHTML = `Score: ${score}/${maxScore}`;
+};
+
+// Modals
+const closeModal = function () {
   modal.classList.remove('active');
+};
+
+startQuizBtn.addEventListener('click', function (e) {
+  closeModal();
 });
 howToPlay.addEventListener('click', function () {
   modal.classList.add('active');
   startQuizBtn.textContent = 'Resume';
 });
 closeEndModal.addEventListener('click', function () {
-  endModal.classList.remove('active');
+  closeModal();
 });
-hudNextArrow.addEventListener('click', getNewQuestion);
-nextBtn.addEventListener('click', getNewQuestion);
 
-const incrementScore = availablePoints => {
-  score += availablePoints;
-  scoreText.innerHTML = `Score: ${score}/${maxScore}`;
-};
+document.addEventListener('keydown', function (e) {
+  if (modal.classList.contains('active') && e.key === 'Escape') {
+    closeModal();
+  }
+});
 
 const endQuizModal = () => {
   endModal.classList.add('active');
