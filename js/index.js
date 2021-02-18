@@ -159,12 +159,15 @@ const getNewQuestion = () => {
 choiceContainerArr.forEach(choice => {
   choice.addEventListener('click', e => {
     let selectedCeleb = e.target.parentElement;
-    selectedCeleb = selectedCeleb.lastElementChild;
+    console.log(selectedCeleb);
+    let selectedCelebName = (selectedCeleb = selectedCeleb.lastElementChild);
     let classToApply = 'incorrect';
-    if (selectedCeleb.textContent === currentQuestion.answer) {
+    if (selectedCelebName.textContent === currentQuestion.answer) {
       classToApply = 'correct';
+      selectedCeleb.parentElement.classList.add(classToApply);
+    } else {
+      selectedCeleb.parentElement.classList.add(classToApply);
     }
-    selectedCeleb.parentElement.classList.add(classToApply);
 
     if (classToApply === 'correct') {
       incrementScore(availablePoints);
@@ -209,7 +212,7 @@ choiceContainerArr.forEach(choice => {
   });
 });
 
-startQuizBtn.addEventListener('click', function () {
+startQuizBtn.addEventListener('click', function (e) {
   modal.classList.remove('active');
 });
 howToPlay.addEventListener('click', function () {

@@ -129,9 +129,9 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(50, 50, 50, 0.6);
+  background-color: rgba(50, 50, 50, 0.5);
   -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   z-index: 3;
   transform: scale(0);
   transition: all 300ms ease-in-out;
@@ -587,7 +587,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.75rem 1rem 1.6rem;
+  padding: 1.125rem 1.75rem 1.125rem 1.6rem;
   background-color: var(--mid-dark-gray);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -611,7 +611,7 @@ button {
 
 .hud-next-arrow {
   position: absolute;
-  top: 0.55rem;
+  top: 0.65rem;
   left: 45.75%;
   font-size: 3.2rem;
   visibility: visible;
@@ -730,7 +730,7 @@ button {
 .choice-text {
   color: var(--dark-gray);
   font-size: 1.6rem;
-  padding-left: 2.1rem;
+  padding: 1.3rem 0rem 1.3rem 2.5rem;
   width: 100%;
 }
 
@@ -758,6 +758,7 @@ button {
 }
 
 .choice-container.incorrect {
+  pointer-events: none;
   border: 1px solid var(--incorrect-dark-red);
   border-top: none;
   background-color: var(--incorrect-bg);
@@ -789,7 +790,7 @@ button {
   .choice-text {
     text-align: center;
     padding-left: 0;
-    padding-right: 4.8rem;
+    /* padding-right: 4rem; */
   }
 }
 
@@ -810,7 +811,7 @@ button {
 @media (min-width: 888px) {
   .choice-text {
     text-align: left;
-    padding-left: 2rem;
+    padding: 1.325rem 0rem 1.325rem 2rem;
   }
 
   .answer-items {
