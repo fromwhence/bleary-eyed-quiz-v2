@@ -156,11 +156,10 @@ const getNewQuestion = () => {
   celebrityImage.style.filter = `blur(${blurAmount}px)`;
 };
 
-// Celebrity name selection
+// Correct or incorrect celebrity selection
 choiceContainerArr.forEach(choice => {
   choice.addEventListener('click', e => {
     let selectedCeleb = e.target.parentElement;
-    console.log(selectedCeleb);
     let selectedCelebName = (selectedCeleb = selectedCeleb.lastElementChild);
     let classToApply = 'incorrect';
     if (selectedCelebName.textContent === currentQuestion.answer) {
@@ -230,6 +229,7 @@ const incrementScore = availablePoints => {
 // Modals
 const closeModal = function () {
   modal.classList.remove('active');
+  endModal.classList.remove('active');
 };
 
 startQuizBtn.addEventListener('click', function (e) {

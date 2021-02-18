@@ -319,8 +319,8 @@ button {
   font-size: 1.8rem;
   font-weight: 300;
   color: #fff;
-  text-shadow: 0 3px 5px rgba(255, 255, 255, 0.8),
-    0 -6px 6px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 3px 4px rgba(255, 255, 255, 0.8),
+    0 -3px 4px rgba(255, 255, 255, 0.8);
   pointer-events: none;
 }
 
